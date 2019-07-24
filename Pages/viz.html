@@ -17,7 +17,17 @@
         <!-- Bootsrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
+        <!-- C3 style -->
+        <link href="/Style/c3.min.css" rel="stylesheet">    
+
+        <!-- Mapbox and map style -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
+        <link href="/Style/map.css" rel="stylesheet" />
+
+        <!-- Custom Style -->
+        <link href="/Style/main.css" rel="stylesheet">
     </head>
 
     <header>
@@ -36,11 +46,13 @@
                             Visualizations <span class="sr-only">(current)</span> <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="viz">
-                            <a class="dropdown-item" href="/Pages/viz.html#map">Map</a>
+                            <a class="dropdown-item" href="/Pages/viz.html#occupation">Occupations</a>
+                            <a class="dropdown-item" href="/Pages/viz.html#mapper">Map</a>
                             <a class="dropdown-item" href="/Pages/viz.html#population">Population</a>
                             <a class="dropdown-item" href="/Pages/viz.html#literacy">Literacy</a>
                         </div>
                     </li>
+                    <a class="nav-link" href="/Pages/data.html">Data </a>
                 </div>
             </div>
         </nav>
@@ -48,16 +60,39 @@
 
     
     <body>
-        <div id="map" class="container">
+        <div id="occupation" class="container">
+            <div class="row align-items-center">
+                <!-- <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5"> -->
+                    <h2>1847 Census Occupation Data Bar Graph</h2>
+                    <p>This chart graphs the top 15 most common jobs among males and females
+                        surveyed in the 1847 census. Hover over each bar to see the frequency
+                        count for males and females for each occuption. This provides a broad
+                        overview of the occupation data.
+                    </p>
+                <!-- </div> -->
+            </div>
+            <!-- <div class="col-6 mx-auto col-md-6 order-md-2"> -->
+                <div class="container">
+                    <span class="graph-title">15 Most Common Jobs in Philadelphia's 1847 Census</span>
+                    <div id="chart"></div>
+                    <div id="null-jobs"><span>other common "occupations"</span></div>
+                </div>
+            <!-- </div> -->
+        </div>
+        <div id="mapper" class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
-                    <h2>Look at this map</h2>
-                    <p>Here is some information about this map. It's really cool.</p>
+                    <h2>Census Regions</h2>
+                    <p>Using historical geocoding, this map overlays the 1947 census 
+                        regions onto a modern map of Philadelphia. 
+                    </p>
                 </div>
-                <div class="col-6 mx-auto col-md-6 order-md-2">
-                    <img src="/Images/philly_type_map_rainbow_18x24_small.jpg">
-                </div>
-            </div>            
+            </div>   
+            <!-- <div class="container"> -->
+                <div class='map-overlay' id='legend'></div>
+                <div id='map'></div>
+                <!-- <div class='map-overlay' id='features'></div> -->
+            <!-- </div>  -->
         </div>
         <div id="population" class="container">
             <div class="row align-items-center">
@@ -137,6 +172,14 @@
             </div>
         </div>
     </body>
+
+    <!-- D3, C3, and main script-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="/Scripts/c3.min.js"></script>
+    <script src="/Scripts/occupation.js"></script>
+
+    <!-- Map -->
+    <script src="/Scripts/map.js"></script>
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
