@@ -5,7 +5,7 @@ Alice Huang, 7/17/19 */
 var chart = c3.generate({
     bindto: '#chart',
     data: {
-      url: '/Data/top_common_jobs.csv',
+      url: 'Data/top_common_jobs.csv',
       x: 'OCC',
       type: 'bar',
       groups: [
@@ -46,7 +46,7 @@ var chart = c3.generate({
 var chart2 = c3.generate({
     bindto: '#chart2',
     data: {
-      url: '/Data/testdata3.csv',
+      url: ' Data/testdata3.csv',
       x: 'OCCUPATION',
       type: 'scatter',
       colors: {
@@ -85,7 +85,7 @@ d3.select('#female-filter button').on('click', function() {
   setTimeout(function() {
       chart2.load({
         unload: true, // on click, clear the loaded data and load new data
-        url: '/Data/testdata4.csv', // load from second csv file
+        url: ' Data/testdata4.csv', // load from second csv file
         colors: {
           'FEMALE': 'red'
         }
@@ -98,7 +98,7 @@ d3.select('#male-filter button').on('click', function() {
   setTimeout(function() {
       chart2.load({
         unload: true,
-        url: '/Data/testdata3.csv',
+        url: ' Data/testdata3.csv',
         colors: {
           'MALE': '#12cadb'
         }
@@ -110,7 +110,7 @@ d3.select('#both-filter button').on('click', function() {
   if (current == 'female'){
     setTimeout(function() {
       chart2.load({
-        url: '/Data/testdata3.csv',
+        url: ' Data/testdata3.csv',
         colors: {
           'MALE': '#12cadb',
         }
@@ -119,7 +119,7 @@ d3.select('#both-filter button').on('click', function() {
   } else {
     setTimeout(function() {
       chart2.load({
-        url: '/Data/testdata4.csv',
+        url: ' Data/testdata4.csv',
         colors: {
           'FEMALE': 'red',
         }
@@ -131,7 +131,7 @@ d3.select('#both-filter button').on('click', function() {
 let chart3,
     currCategory = 'p';
 
-drawCategoryChart('/Data/m_p.csv', 'PUBLIC_SERVICE')
+drawCategoryChart(' Data/m_p.csv', 'PUBLIC_SERVICE')
 
 function drawCategoryChart(file, category) {
   chart3 = c3.generate({
@@ -179,33 +179,33 @@ function reload(file) {
 }
 
 d3.select('#p-filter-f button').on('click', function() {
-  reload('/Data/f_' + currCategory + '.csv')
+  reload(' Data/f_' + currCategory + '.csv')
 })
 
 d3.select('#p-filter-m button').on('click', function() {
-  reload('/Data/m_' + currCategory + '.csv')
+  reload(' Data/m_' + currCategory + '.csv')
 })
 
 d3.select('#cat-filter select').on('change', function() {
   item = d3.select(this).property('value'); // get drop-down selection
   if(item == 'd') {
-    drawCategoryChart('/Data/m_d.csv', 'DOMESTIC')
+    drawCategoryChart(' Data/m_d.csv', 'DOMESTIC')
     currCategory = 'd'
     d3.select('#title').text('Domestic Jobs')
   } else if (item == 's') {
-    drawCategoryChart('/Data/m_s.csv', 'SKILLED_TRADES')
+    drawCategoryChart(' Data/m_s.csv', 'SKILLED_TRADES')
     currCategory = 's'
     d3.select('#title').text('Skilled Trades Jobs')
   } else if (item == 'u') {
-    drawCategoryChart('/Data/m_u.csv', 'UNSKILLED_LABOR')
+    drawCategoryChart(' Data/m_u.csv', 'UNSKILLED_LABOR')
     currCategory = 'u'
     d3.select('#title').text('Unskilled Labor Jobs')
   } else if (item == 'm') {
-    drawCategoryChart('/Data/m_m.csv', 'MISCELLANEOUS')
+    drawCategoryChart(' Data/m_m.csv', 'MISCELLANEOUS')
     currCategory = 'm'
     d3.select('#title').text('Miscellaneous Jobs')
   } else {
-    drawCategoryChart('/Data/m_p.csv', 'PUBLIC_SERVICE')
+    drawCategoryChart(' Data/m_p.csv', 'PUBLIC_SERVICE')
     currCategory = 'p'
     d3.select('#title').text('Public Service Jobs')
   }
