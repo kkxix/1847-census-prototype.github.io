@@ -16,10 +16,17 @@
 
     <!-- Base URL -->
     <base href="https://kkxix.github.io/1847-census-prototype.github.io/">
+    <!-- <base href="/"> -->
 
     <!-- Bootsrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- C3 style -->
+    <link href="Style/c3.min.css" rel="stylesheet">
+
+    <!-- Custom style -->
+    <link href="Style/data-table.css" rel="stylesheet">
 
 </head>
 
@@ -64,7 +71,29 @@
 </header>
 
     <body>
-        Clean Data 
+        <h2>1847 Searchable Census Data </h2>
+        <!-- <p>Toggle between the 3 prototypes:</p>
+        <div class="nav">
+            <button><a href="index.html">Prototype 1</a></button>
+            <button><a href="prototype2.html">Prototype 2</a></button>
+            <button><a href="prototype3.html">Prototype 3</a></button>
+            <button><a href="#" class="selected">Tabulated Data</a></button>
+        </div> -->
+        
+        <div id="table-container">
+            <div id="search-filter">
+                <select>
+                    <option value="ID">ID</option>
+                    <option value="Last Name">Last Name</option>
+                    <option value="First Name">First Name</option>
+                    <option value="Residence Street">Residence Street</option>
+                    <option value="Male Occupation 1">Male Occupation 1</option>
+                    <option value="Female Occupation 1">Female Occupation 1</option>
+                    <option value="Ward">Ward</option>
+                </select>
+            </div>
+            <div id="chart4"></div>
+        </div>
     </body>
 
     <!-- Bootstrap -->
@@ -77,4 +106,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <!-- D3, C3, and main script-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="Scripts/c3.min.js"></script>
+    <script src="Scripts/data-table-js.js"></script>
 </html>
