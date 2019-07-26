@@ -26,6 +26,7 @@ on the page. */
     height: 100px;
     margin-top: 20px;
     width: 250px;
+    height: max-content;
 }
 
 #legend {
@@ -38,10 +39,11 @@ on the page. */
 
 #opacity-slider {
     font:bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    position: absolute;
+    /* position: absolute; */
     width: 330px;
     height: 85px;
-    margin-top: 300px;
+    /* margin-top: 300px; */
+    margin: 2em 0em;
     padding: 10px;
 }
 

@@ -69,10 +69,9 @@ d3.select('#search-filter select').on('change', function() {
 })
 
 // add search bar
-d3.select("#chart4").append("div")
+d3.select("#search-filter").append("div")
   .attr("class", "SearchBar")
   .append("input")
-    .attr("class", "SearchBar")
     .attr("id", "myInput")
     .attr("type", "text")
     .attr("placeholder", "Search by ID")
